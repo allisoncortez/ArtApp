@@ -1,0 +1,8 @@
+<h1> Hey <%= @user.email %></h1>
+
+<%=  form_tag( '/logout', method: 'delete' ) do %>
+  <%= submit_tag "logout" %>
+<% end %>
+
+<%# same thing as %>
+<%= link_to "logout", logout_path, method: "delete " %>
