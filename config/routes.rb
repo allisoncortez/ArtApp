@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+#write custom routes ABOVE
+  get '/signup' => 'users#new'
+  # post '/signup' => 'users#create'
+
+
   resources :comments
   resources :art_pieces
   resources :challenges
