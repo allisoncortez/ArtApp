@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     end
 
     def logged_in?
-        !!@current_user
+        !!session[:user_id]
 
         # or we could do 
         #     !!session[:user_id]
