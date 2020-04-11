@@ -14,8 +14,28 @@ Rails.application.routes.draw do
 
 
   resources :comments
-  resources :art_pieces
+  resources :users do
+    resources :art_pieces, only [:new,:create,:index]
+  end
+
+  resources art_pieces do
+    resources :comments, only [:new,:create,:index]
+  end
+
   resources :challenges
-  resources :users
+
+
+  # posts/:post_id/comments
+  # posts/:post_id/comments/new
+
+
+
+
+
+
+
+
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
