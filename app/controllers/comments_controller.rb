@@ -2,9 +2,11 @@ class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
+        # first, check if it's nested.. && if we can successfully find that art.. STEP3: it will set the @art value if found.
         if params[:art_piece_id] && @art = ArtPiece.find_by_id(params[:art_piece_id])
             @comments = @art.comments
         else
+            # flash[:message] = "Oops! That art doesn't exist." ..we would need to redirect to something, if we use flash here..
             @error = "Oops! That art doesn't exist." if params[:art_piece_id]
             @comments = Comment.all 
         end
@@ -33,13 +35,16 @@ class CommentsController < ApplicationController
 
     def update
         @comment = Comment.find_by(id: params[:id])
-        if @comment 
+        if @comment.update(comment_params)
+            redirect_to comment_path(@comment)
+        else 
+            render :edit 
+        end
     end
 
     private
 
     def comment_params
-        params.require(:comment).permit(:content)
-    end
+        params.require(:comment).permit(:content, :art_piece_id)
     end
 end

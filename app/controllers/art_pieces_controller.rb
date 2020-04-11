@@ -13,6 +13,10 @@ class ArtPiecesController < ApplicationController
         end
     end
 
+    def show
+        @art_piece = ArtPiece.find_by(id: params[:id])
+    end 
+
     private
 
     def art_params
