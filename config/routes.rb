@@ -15,11 +15,11 @@ Rails.application.routes.draw do
 
   resources :comments
   resources :users do
-    resources :art_pieces, only [:new,:create,:index]
+    resources :art_pieces, only: [:new,:create,:index]
   end
 
-  resources art_pieces do
-    resources :comments, only [:new,:create,:index]
+  resources :art_pieces do
+    resources :comments
   end
 
   resources :challenges
