@@ -5,7 +5,7 @@ class ArtWorksController < ApplicationController
     end
 
     def create
-        @art_work = current_user.art_work.build(art_work_params)
+        @art_work = current_user.art_works.build(art_work_params)
         if @art_work.save
             redirect_to art_work_path
         else
@@ -16,6 +16,25 @@ class ArtWorksController < ApplicationController
     def show
         @art_work = ArtWork.find_by(id: params[:id])
     end 
+
+    def edit
+        @art_work = Artwork.find_by(id: params[:id])
+    end
+
+    def update
+        @art_work = ArtWork.find_by(id: params[:id])
+        if @art_work.update(art_work_params)
+            redirect_to art_work_path(@art_work)
+        else 
+            render :edit 
+        end
+    end
+
+    def destroy
+        @art_work = ArtWork.find(params[:id])
+        @art_work.destroy
+        redirect_to art_works_path
+    end
 
     private
 
