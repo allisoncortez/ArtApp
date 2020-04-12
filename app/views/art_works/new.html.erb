@@ -1,6 +1,9 @@
-<h1>New Submission</h1>
+<h2> <%= @art_work.challenge.name %> </h2>
+<p>challenge instructions</p>
 
-<%= form_for(@art_work) do |f| %>
+<%= form_for([@challenge, @art_work]) do |f| %>
+
+  <%= f.hidden_field :challenge_id %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br><br>

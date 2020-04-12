@@ -1,13 +1,30 @@
 class ArtWorksController < ApplicationController
     before_action :redirect_if_not_logged_in
     # before_action :set_art_work, except: [:index, :new, :create]
+
+    def index
+        # first, check if it's nested
+        if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
+            @art_works = @challenge.art_works
+        else
+            # flash[:message] = "Oops! That art doesn't exist." ..we would need to redirect to something, if we use flash here..
+            @error = "Oops! That challenge doesn't exist." if params[:challenge_id]
+            @art_works = ArtWork.all 
+        end
+    end
+
     def new
-        @art_work = ArtWork.new  
+        if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
+            @art_work = @challenge.art_works.build
+        else
+          @error = "Oops! That challenge doesn't exist." if params[:challenge_id]
+          @art_work = ArtWork.new  
+        end
     end
 
     def create
-        @art_work = @current_user.art_works.build(art_work_params)
-        # @art_work = ArtWork.new(art_work_params)
+        # binding.pry
+        @art_work = current_user.art_works.build(art_work_params)
         if @art_work.save
             redirect_to art_works_path
         else
@@ -16,7 +33,8 @@ class ArtWorksController < ApplicationController
     end
 
     def show
-        #need to load artworks..
+        #does the artwork exist
+        #does it have matching ids
         @art_work = ArtWork.find_by(id: params[:id])
     end 
 
@@ -42,7 +60,7 @@ class ArtWorksController < ApplicationController
     private
 
     def art_work_params
-        params.require(:art_work).permit(:title, :social_handle)
+        params.require(:art_work).permit(:title, :social_handle, :challenge_id, :user_id)
     end
 
     # def set_art_work

@@ -12,12 +12,6 @@ Rails.application.routes.draw do
   #logout
   delete '/logout' => 'sessions#destroy'
 
-
-  
-  resources :users do
-    resources :art_works, only: [:new,:create,:index]
-  end
-
   resources :comments
   
   resources :art_works do
@@ -27,6 +21,10 @@ Rails.application.routes.draw do
   # resources :challenges
 
   resources :challenges do
+    resources :art_works, only: [:new,:create,:index]
+  end
+
+  resources :users do
     resources :art_works, only: [:new,:create,:index]
   end
 
