@@ -1,4 +1,4 @@
 class Comment < ApplicationRecord
     belongs_to :user
-    belongs_to :art_piece
+    belongs_to :artwork
 end

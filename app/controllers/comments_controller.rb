@@ -3,11 +3,11 @@ class CommentsController < ApplicationController
 
     def index
         # first, check if it's nested.. && if we can successfully find that art.. STEP3: it will set the @art value if found.
-        if params[:art_piece_id] && @art = ArtPiece.find_by_id(params[:art_piece_id])
+        if params[:artwork_id] && @art = ArtWork.find_by_id(params[:artwork_id])
             @comments = @art.comments
         else
             # flash[:message] = "Oops! That art doesn't exist." ..we would need to redirect to something, if we use flash here..
-            @error = "Oops! That art doesn't exist." if params[:art_piece_id]
+            @error = "Oops! That art doesn't exist." if params[:artwork_id]
             @comments = Comment.all 
         end
     end

@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_203510) do
+ActiveRecord::Schema.define(version: 2020_04_12_152836) do
 
-  create_table "art_pieces", force: :cascade do |t|
+  create_table "artworks", force: :cascade do |t|
     t.string "title"
     t.string "social_handle"
     t.integer "user_id"
     t.integer "challenge_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["challenge_id"], name: "index_art_pieces_on_challenge_id"
-    t.index ["user_id"], name: "index_art_pieces_on_user_id"
+    t.index ["challenge_id"], name: "index_artworks_on_challenge_id"
+    t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
   create_table "challenges", force: :cascade do |t|
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 2020_04_09_203510) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "art_pieces", "challenges"
-  add_foreign_key "art_pieces", "users"
-  add_foreign_key "comments", "art_pieces"
+  add_foreign_key "artworks", "challenges"
+  add_foreign_key "artworks", "users"
+  add_foreign_key "comments", "artworks", column: "art_piece_id"
   add_foreign_key "comments", "users"
 end
