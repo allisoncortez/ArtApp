@@ -12,15 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2020_04_12_152836) do
 
-  create_table "artworks", force: :cascade do |t|
+  create_table "art_works", force: :cascade do |t|
     t.string "title"
     t.string "social_handle"
     t.integer "user_id"
     t.integer "challenge_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["challenge_id"], name: "index_artworks_on_challenge_id"
-    t.index ["user_id"], name: "index_artworks_on_user_id"
+    t.index ["challenge_id"], name: "index_art_works_on_challenge_id"
+    t.index ["user_id"], name: "index_art_works_on_user_id"
   end
 
   create_table "challenges", force: :cascade do |t|
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 2020_04_12_152836) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "artworks", "challenges"
-  add_foreign_key "artworks", "users"
-  add_foreign_key "comments", "artworks", column: "art_piece_id"
+  add_foreign_key "art_works", "challenges"
+  add_foreign_key "art_works", "users"
+  add_foreign_key "comments", "art_works", column: "art_piece_id"
   add_foreign_key "comments", "users"
 end

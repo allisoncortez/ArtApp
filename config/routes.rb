@@ -15,10 +15,10 @@ Rails.application.routes.draw do
 
   resources :comments
   resources :users do
-    resources :artworks, only: [:new,:create,:index]
+    resources :art_works, only: [:new,:create,:index]
   end
 
-  resources :artworks do
+  resources :art_works do
     resources :comments
   end
 

@@ -1,0 +1,13 @@
+<h1> art show page</h1>
+<%# @art_work.title %>
+<h2> By <%= @art_work.user.email %> </h2>
+
+<div> <%= @art_work.title %> </div>
+
+<p> <%= link_to 'See all comments', art_work_comments_path(@art_work) %>
+
+<h4>Comments:</h4>
+<% @art_work.comments.each do |c| %>
+  <li> <%= c.user.email %> says "<%= link_to c.content, comment_path(c) %>" </li>
+<% end %>
+
