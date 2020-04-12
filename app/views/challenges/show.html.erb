@@ -1,7 +1,8 @@
 <%= @challenge.name %>
 <p>Participants: x </p>
+<p> iterate through artworks for this challenge. SHOW HERE (each image has link to that specific art_work showpage)</p>
 <p>challenge instructions</p>
 
 
 
-<%= link_to "Submit Your Art!", new_art_work_path %>
+<%= link_to "Submit Your Art!", new_challenge_art_work_path(@challenge) %>

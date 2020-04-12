@@ -14,10 +14,9 @@
     <div>
     <% if logged_in? %>
     <%= link_to "Submit Art", new_art_work_path %> |
-    <%= link_to "My Challenges:TBC", challenges_path%> |
+    <%= link_to "Challenges", challenges_path%> |
     <%= link_to "Logout", logout_path, method:"delete" %>
     <% else %>
-      <%= link_to "Challenges", challenges_path%>
       <%= link_to "Sign Up", signup_path %> |
       <%= link_to "Log In", login_path %> |
       <% end %>

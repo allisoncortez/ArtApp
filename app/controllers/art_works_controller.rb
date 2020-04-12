@@ -1,19 +1,22 @@
 class ArtWorksController < ApplicationController
     before_action :redirect_if_not_logged_in
+    # before_action :set_art_work, except: [:index, :new, :create]
     def new
         @art_work = ArtWork.new  
     end
 
     def create
-        @art_work = current_user.art_works.build(art_work_params)
+        @art_work = @current_user.art_works.build(art_work_params)
+        # @art_work = ArtWork.new(art_work_params)
         if @art_work.save
-            redirect_to art_work_path
+            redirect_to art_works_path
         else
             render :new
         end
     end
 
     def show
+        #need to load artworks..
         @art_work = ArtWork.find_by(id: params[:id])
     end 
 
@@ -31,7 +34,7 @@ class ArtWorksController < ApplicationController
     end
 
     def destroy
-        @art_work = ArtWork.find(params[:id])
+        @art_work = ArtWork.find_by(id: params[:id])
         @art_work.destroy
         redirect_to art_works_path
     end
@@ -41,4 +44,8 @@ class ArtWorksController < ApplicationController
     def art_work_params
         params.require(:art_work).permit(:title, :social_handle)
     end
+
+    # def set_art_work
+    #     @art_work = Artwork.find_by(id: params[:id])
+    # end
 end
