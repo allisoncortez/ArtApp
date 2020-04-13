@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   #logout
   delete '/logout' => 'sessions#destroy'
 
+  # get '/auth/:provider/callback' => 'sessions#omniauth'
+
   resources :comments
   
   resources :art_works do

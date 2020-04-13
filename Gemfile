@@ -11,6 +11,16 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+
+#omniauth gem requirements, referenced this blog: https://github.com/rachelkathleen/wine-log
+# gem 'google-cloud-storage', '~> 1.8', require: false
+# gem 'omniauth-facebook'
+
+# gem 'omniauth'
+# gem 'dotenv-rails'
+# gem 'omniauth-google-oauth2'
+# gem 'thin'
+
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
