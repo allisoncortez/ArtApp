@@ -5,7 +5,7 @@ class ChallengesController < ApplicationController
     end
 
     def new
-        
+        @challenge = new
     end
 
     def create

@@ -15,7 +15,9 @@
 <%# maybe we don't want to give them this feature of deleting.. once you submit it's final?? or you can only delete in certain timeframes.. %>
 <%= button_to 'delete', @art_work, :method => :delete %>
 
-<p> link to this challenge showpage</p>
+<%# takes you to artwork index (my submissions) %>
+<%= link_to @art_work.challenge.name, challenge_art_works_path(@art_work) %>
+
 
 </div>
 

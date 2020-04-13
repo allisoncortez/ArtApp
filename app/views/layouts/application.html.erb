@@ -15,7 +15,6 @@
     <% if logged_in? %>
     <%= link_to "Make a New Challenge", new_challenge_path %> |
     <%= link_to "Challenges", challenges_path%> |
-    <%= link_to "My Submissions", users_path(@user)%> |
     <%= link_to "Logout", logout_path, method:"delete" %>
     <% else %>
       <%= link_to "Sign Up", signup_path %> |
