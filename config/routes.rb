@@ -14,16 +14,16 @@ Rails.application.routes.draw do
 
   # get '/auth/:provider/callback' => 'sessions#omniauth'
 
-  resources :comments
+  # resources :comments
   
   resources :art_works do
-    resources :comments
+    resources :comments, only [:new,:create, :index, :show]
   end
 
   # resources :challenges
 
   resources :challenges do
-    resources :art_works, only: [:new,:create,:index]
+    resources :art_works, only: [:new,:create,:index, :show]
   end
 
   resources :users do
