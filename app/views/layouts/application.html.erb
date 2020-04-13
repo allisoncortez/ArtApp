@@ -14,6 +14,7 @@
     <div>
     <% if logged_in? %>
     <%= link_to "Challenges", challenges_path %> |
+    <%= link_to "Home", user_art_works_path(current_user) %> |
     <%= link_to "Logout", logout_path, method:"delete" %>
     <% else %>
       <%= link_to "Sign Up", signup_path %> |

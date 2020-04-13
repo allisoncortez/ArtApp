@@ -4,7 +4,7 @@
 </div>
 
 <ol>
-<%= @challenges.each do |c| %>
+<% @challenges.each do |c| %>
   <li><%= link_to c.name, challenge_path(c) %></li>
   <ol>
 <% end %>
