@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # resources :comments
   
   resources :art_works do
-    resources :comments, only [:new,:create, :index, :show]
+    resources :comments, only: [:new,:create, :index, :show]
   end
 
   # resources :challenges
