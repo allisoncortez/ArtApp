@@ -1,6 +1,8 @@
-<p>create new challenge</p>
+<p>create new challenge LINK</p>
 
 <h1>All Challenges</h1>
+<ol>
 <%= @challenges.each do |c| %>
-  <%= link_to c.name, challenge_path(c) %>
+  <li><%= link_to c.name, challenge_path(c) %></li>
+  <ol>
 <% end %>

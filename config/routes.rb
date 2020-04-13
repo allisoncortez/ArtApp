@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :art_works, only: [:new,:create,:index]
+    resources :art_works, only: [:new,:create,:index, :show]
   end
 
 

@@ -23,10 +23,11 @@ class ArtWorksController < ApplicationController
     end
 
     def create
-        # binding.pry
+        
         @art_work = current_user.art_works.build(art_work_params)
         if @art_work.save
-            redirect_to art_works_path
+            redirect_to art_works_path(@art_work)
+            # artwork index path: challenge_art_works_path(@art_work)
         else
             render :new
         end
@@ -45,7 +46,7 @@ class ArtWorksController < ApplicationController
     def update
         @art_work = ArtWork.find_by(id: params[:id])
         if @art_work.update(art_work_params)
-            redirect_to art_work_path(@art_work)
+            redirect_to art_work_path
         else 
             render :edit 
         end
@@ -60,7 +61,7 @@ class ArtWorksController < ApplicationController
     private
 
     def art_work_params
-        params.require(:art_work).permit(:title, :social_handle, :challenge_id, :user_id)
+        params.require(:art_work).permit(:title, :challenge_id, :user_id, :social_handle)
     end
 
     # def set_art_work

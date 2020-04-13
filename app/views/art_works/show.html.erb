@@ -1,18 +1,21 @@
-<h1> art show page</h1>
-<%# @art_work.title %>
-<h2> By <%= @art_work.user.email %> </h2>
 
-<div> <%= @art_work.title %> </div>
+  <h1> <%= @art_work.title %> </h1>
+  <p> by: <%= link_to @art_work.user.email, user_path %> </p>
+
+  <div>
+
+  <h3>IMAGE HERE</h3>
 
 <%= link_to 'Edit Post', edit_art_work_path(@art_work) %>
 <%# <%= link_to 'Challenge Page', challenge_index_path %> %>
-<%= link_to 'See all comments', art_work_comments_path(@art_work) %>
+<%# <%= link_to 'See all comments', art_work_comments_path(@art_work) %> %>
 
 <%# maybe we don't want to give them this feature of deleting.. once you submit it's final?? or you can only delete in certain timeframes.. %>
 <%= button_to 'delete', @art_work, :method => :delete %>
 
-<h4>Comments:</h4>
-<% @art_work.comments.each do |c| %>
-  <li> <%= c.user.email %> says "<%= link_to c.content, comment_path(c) %>" </li>
-<% end %>
+</div>
+
+<h4>Comments Here:</h4>
+
+
 
