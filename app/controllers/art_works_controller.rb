@@ -40,7 +40,11 @@ class ArtWorksController < ApplicationController
     end 
 
     def edit
-        @art_work = Artwork.find_by(id: params[:id])
+        @art_work = ArtWork.find_by(id: params[:id])
+        # if @art_work.user_id != current_user.id 
+        #     flash[:error] = "Oops, you can't edit this."
+        #     redirect_to home_path
+        # end
     end
 
     def update
