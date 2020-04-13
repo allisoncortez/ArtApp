@@ -1,4 +1,6 @@
 
+  <h1>YOU'VE SUCCESSFULLY SUBMITTED YOUR ARTWORK to chalengename!..</h1>
+  
   <h1> <%= @art_work.title %> </h1>
   <p> by: <%= link_to @art_work.user.email, user_path %> </p>
 
@@ -12,6 +14,8 @@
 
 <%# maybe we don't want to give them this feature of deleting.. once you submit it's final?? or you can only delete in certain timeframes.. %>
 <%= button_to 'delete', @art_work, :method => :delete %>
+
+<p> link to this challenge showpage</p>
 
 </div>
 
