@@ -5,4 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-the_lonely_art_club = Challenge.create(name: "The Lonely Art Club")
+
+
+  the_lonely_art_club = Challenge.create(name: "The Lonely Art Club")
+
+#   9.times.do
+#       User.create([{
+#           name: Faker::Artist.name,
+#           email: Faker::Internet.email,
+#           password: Faker::Lorem.word,
+#           image: Faker::Avater.image
+#       }])
+#   end
