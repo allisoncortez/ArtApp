@@ -65,7 +65,7 @@ class ArtWorksController < ApplicationController
     private
 
     def art_work_params
-        params.require(:art_work).permit(:title, :challenge_id, :user_id, :social_handle)
+        params.require(:art_work).permit(:title, :challenge_id, :user_id, :social_handle, :image)
     end
 
     # def set_art_work

@@ -4,6 +4,10 @@
 <%= form_for([@challenge, @art_work]) do |f| %>
 
   <%= f.hidden_field :challenge_id %>
+  
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <br><br>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br><br>
