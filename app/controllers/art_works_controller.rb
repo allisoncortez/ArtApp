@@ -4,11 +4,11 @@ class ArtWorksController < ApplicationController
 
     def index
         # first, check if it's nested
-        if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
-            @art_works = @challenge.art_works
+        if params[:user_id] && current_user = User.find_by_id(params[:user_id])
+            @art_works = current_user.art_works
         else
             # flash[:message] = "Oops! That art doesn't exist." ..we would need to redirect to something, if we use flash here..
-            @error = "Oops! That challenge doesn't exist." if params[:challenge_id]
+            @error = "Oops! That user doesn't exist." if params[:user_id]
             @art_works = ArtWork.all 
         end
     end

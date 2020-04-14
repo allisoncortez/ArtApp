@@ -1,6 +1,6 @@
  <h1> ARTWORKS FOR THAT SPECIFIC CHALLENGE (challenge index)</h1>
 <ul>
- <%= @art_works.each do |a| %>
+ <% @art_works.each do |a| %>
   <li><%= link_to a.title, art_work_path(a) %></li>
   </ul>
 <% end %>
