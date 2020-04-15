@@ -1,13 +1,19 @@
+<div class="container" style="padding-top:60px">
 <h1><%= @challenge.name %></h1>
 <!-- <p>Participants: <%= @challenge.users.count %> </p> -->
 <p>challenge instructions here</p>
-<%= link_to "Submit Your Work", new_challenge_art_work_path(@challenge) %>
+<%= link_to "Submit Your Work", new_challenge_art_work_path(@challenge), class: 'btn btn-primary' %>
 <br><br>
 
  <% @challenge.art_works.each do |a| %>
-   <div style="width:300px; height:auto">
+   
+   <div class="card" style="width:300px; height:350px">
+   <div class="card-body" style="width:400px; height:auto;">
       <%= link_to a.title, art_work_path(a) %>
+      <%= image_tag a.image, class: 'd-block w-50' %>
+      </div>
   </div>
 <% end %>
+</div>
 
 
