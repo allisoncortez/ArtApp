@@ -1,0 +1,25 @@
+<div class="form-row">
+    
+        <div class="card-body">
+          <%= form_for(@comment) do |f| %>
+            <%= f.hidden_field :art_work_id %>
+          
+            
+            <div style="width:300px; height:auto; padding-top:60px">
+                <%= image_tag(@art_work.image, style:'width:100%') %>
+            </div>
+            
+            
+
+            <div class="form-group">
+            <%= f.label :content %><br>
+            <%= f.text_field :content %>
+            </div>
+
+            <%= f.submit "Submit", class: 'btn btn-primary'%>
+        
+          <% end %>
+        </div>
+   
+  
+</div>

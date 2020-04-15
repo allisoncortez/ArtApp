@@ -22,12 +22,12 @@ Rails.application.routes.draw do
 
   # resources :challenges
 
-  resources :challenges do
-    resources :art_works, only: [:new,:create,:index, :show]
+  resources :challenges, only: [:show, :index] do
+    resources :art_works, only: [:new, :index, :show]
   end
 
   resources :users do
-    resources :art_works, only: [:new,:create,:index, :show]
+    resources :art_works, only: [:new, :index, :show]
   end
 
 

@@ -8,18 +8,25 @@ class CommentsController < ApplicationController
         else
             # flash[:message] = "Oops! That art doesn't exist." ..we would need to redirect to something, if we use flash here..
             @error = "Oops! That art doesn't exist." if params[:art_work_id]
+        
             @comments = Comment.all 
         end
     end
 
     def new
-        @comment = Comment.new
+       @art_work = ArtWork.find_by_id(params[:art_work_id])
+
+        @comment = @art_work.comments.build
+
     end
 
     def create
+        
         @comment = current_user.comments.build(comment_params)
+        # @art_work = ArtWork.find_by_id(params[:art_work_id])
         if @comment.save
-            redirect_to comments_path
+            redirect_to art_work_path(@art_work)
+            # redirect_to comments_path
         else
             render :new
         end
@@ -31,6 +38,12 @@ class CommentsController < ApplicationController
 
     def edit
         @comment = Comment.find_by(id: params[:id])
+        
+        if @comment.user_id != current_user.id 
+            flash[:message] = "Oops, you can't edit this."
+            redirect_to challenge_path
+        end
+
     end
 
     def update
