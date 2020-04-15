@@ -1,10 +1,13 @@
-<div>
-  <h1>All Challenges</h1>
-  <%# link_to "Make a New Challenge", new_challenge_path %>
-</div>
+<div class="container" style="padding-top:60px">
 
-<ol>
+  <%# link_to "Make a New Challenge", new_challenge_path %>
+  </div>
+
+
+
 <% @challenges.each do |c| %>
-  <li><%= link_to c.name, challenge_path(c) %></li>
-  <ol>
+<div class="container">
+    <h2><%= link_to c.name, challenge_path(c) %></h2>
+  </div>
 <% end %>
+</div>

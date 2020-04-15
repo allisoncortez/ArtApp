@@ -37,20 +37,24 @@ class ArtWorksController < ApplicationController
         #does the artwork exist
         #does it have matching ids
         @art_work = ArtWork.find_by(id: params[:id])
+        @challenge = @art_work.challenge
     end 
 
     def edit
-        @art_work = ArtWork.find_by(id: params[:id])
-        # if @art_work.user_id != current_user.id 
-        #     flash[:error] = "Oops, you can't edit this."
-        #     redirect_to home_path
-        # end
+          @art_work = ArtWork.find_by(id: params[:id])
+          @challenge = @art_work.challenge
+        if @art_work.user_id != current_user.id 
+            flash[:message] = "Oops, you can't edit this."
+            # redirect_to challenge_art_works_path(@art_work)
+            redirect_to challenge_path(@challenge)
+        end
     end
 
     def update
+        #can only update if YOU are the owner.. need to add this in.
         @art_work = ArtWork.find_by(id: params[:id])
         if @art_work.update(art_work_params)
-            redirect_to art_work_path
+            redirect_to user_art_works_path(current_user)
         else 
             render :edit 
         end

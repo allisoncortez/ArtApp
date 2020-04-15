@@ -9,6 +9,8 @@
 
   the_lonely_art_club = Challenge.create(name: "The Lonely Art Club")
 
+  portraits_challenge = Challenge.create(name: "Portraits")
+
 #   9.times.do
 #       User.create([{
 #           name: Faker::Artist.name,
