@@ -1,4 +1,5 @@
-<div class="container" style="padding-top:60px">
+<div class="row justify-content-center align-items-center" style="padding-top:60px">
+  <div class="col-nd-4 offset-nd-4">
 <h1><%= @challenge.name %></h1>
 <!-- <p>Participants: <%= @challenge.users.count %> </p> -->
 <p>challenge instructions here</p>
@@ -7,13 +8,19 @@
 
  <% @challenge.art_works.each do |a| %>
    
-   <div class="card" style="width:300px; height:350px">
-   <div class="card-body" style="width:400px; height:auto;">
-      <%= link_to a.title, art_work_path(a) %>
-      <%= image_tag a.image, class: 'd-block w-50' %>
+  <div class="card-group">
+    <div class="card">
+      <div class="card-body" style="width:400px; height:auto;">
+        <%= image_tag a.image, class: 'd-block w-50' %>
+        
+        <div class="text">
+        <%= link_to a.title, art_work_path(a) %>
+        </div>
       </div>
+    </div>
   </div>
 <% end %>
+</div>
 </div>
 
 
