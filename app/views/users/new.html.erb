@@ -1,18 +1,32 @@
-<h1> Sign Up</h1>
 
-<%= form_for @user do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <br>
-  <br>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <br>
-  <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-   <br>
-   <br>
-  <%= f.submit "Submit" %>
+<div class="row justify-content-center align-items-center">
+  <div class="col-nd-4 offset-nd-4">
+    <h2> Sign Up</h2>
+    <div class="card mb-3">
+        <div class="card-body">
 
-<% end %>
+            <%= form_for @user do |f| %>
+              <div class="form-group">
+                <%= f.label :first_name %><br>
+                <%= f.text_field :first_name, class:"form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :email %><br>
+                <%= f.email_field :email, autofocus: true, autocomplete:"email", class:"form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password %><br>
+                <%= f.password_field :password, autocomplete: "password", class:"form-control" %>
+              </div>
+                <!-- <%= f.password_field :password_confirmation, autocomplete: "password,", class:"form-control", placeholder:"Password Confirmation" %> -->
+              
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+                <!-- <%= f.submit "Sign Up" %> -->
+              
+            <% end %>
+        </div>
+    </div>        
+  </div>
+</div>
