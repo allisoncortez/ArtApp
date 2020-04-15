@@ -26,7 +26,7 @@ class ArtWorksController < ApplicationController
         
         @art_work = current_user.art_works.build(art_work_params)
         if @art_work.save
-            redirect_to art_work_path(@art_work)
+            redirect_to art_work_path(@art_work), notice: "Artwork uploaded successfully"
             # artwork index path: challenge_art_works_path(@art_work)
         else
             render :new

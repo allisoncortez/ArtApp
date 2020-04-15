@@ -1,9 +1,13 @@
 <h1><%= @challenge.name %></h1>
-<p>Participants: x </p>
-<p>challenge instructions</p>
+<!-- <p>Participants: <%= @challenge.users.count %> </p> -->
+<p>challenge instructions here</p>
 <%= link_to "Submit Your Work", new_challenge_art_work_path(@challenge) %>
 <br><br>
 
  <% @challenge.art_works.each do |a| %>
-  <%= link_to a.title, art_work_path(a) %>
+   <div style="width:300px; height:auto">
+      <%= link_to a.title, art_work_path(a) %>
+  </div>
 <% end %>
+
+
