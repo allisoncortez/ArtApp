@@ -1,22 +1,12 @@
-<h2> <%= @art_work.challenge.name %> </h2>
-<p>challenge instructions</p>
-
-<%= form_for([@challenge, @art_work]) do |f| %>
-
-  <%= f.hidden_field :challenge_id %>
-  
-  <div style="width:300px; height:auto">
+      
+<div style="width:300px; height:auto; padding-top:60px">
   <%= image_tag(@art_work.image, style:'width:100%') %>
-  </div>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-  <br><br>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br><br>
-  <%= f.label :social_handle %>
-  <%= f.text_field :social_handle %>
-<br>
-<%= f.submit %>
+</div>
+    
+<%= render 'form'%>
 
-<% end %>
+<div class="container">
+  <%= button_to 'delete', @art_work, :method => :delete %>
+</div>
+
+

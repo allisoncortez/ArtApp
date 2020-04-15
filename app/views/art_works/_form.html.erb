@@ -1,0 +1,29 @@
+<div class="form-row">
+    
+        <div class="card-body">
+          <%= form_for([@challenge, @art_work]) do |f| %>
+
+            <%= f.hidden_field :challenge_id %>
+            
+            <div class="<div class="col-nd-4 offset-nd-4>
+            <%= f.label :image %><br>
+            <%= f.file_field :image %>
+            </div>
+        
+            <div class="form-group">
+            <%= f.label :title %><br>
+            <%= f.text_field :title %>
+            </div>
+
+            <div class="form-group">
+            <%= f.label :description %><br>
+            <%= f.text_field :description %>
+            </div>
+
+            <%= f.submit "Submit", class: 'btn btn-primary'%>
+        
+          <% end %>
+        </div>
+   
+  
+</div>

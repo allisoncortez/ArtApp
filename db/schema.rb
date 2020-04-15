@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_134245) do
+ActiveRecord::Schema.define(version: 2020_04_15_035005) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_134245) do
     t.integer "challenge_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
     t.index ["challenge_id"], name: "index_art_works_on_challenge_id"
     t.index ["user_id"], name: "index_art_works_on_user_id"
   end

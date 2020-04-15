@@ -1,19 +1,26 @@
 
-  <h1> <%= @art_work.title %> </h1>
-  <p> by: <%= link_to @art_work.user.first_name, user_art_works_path(current_user) %> </p>
 
-  <div style="width:300px; height:auto">
-  <%= image_tag(@art_work.image, style:'width:100%') %>
+  <div class="container" style="padding-top:60px">
+    <%= link_to 'Edit Post', edit_art_work_path(@art_work), class: 'btn btn-primary'%>
+
+
+    <h3> <%= @art_work.title %> </h3>
+    <h6> By: <%= link_to @art_work.user.first_name, user_art_works_path(current_user) %> </h6>
+
+     <div style="width:300px; height:auto;">
+        <%= image_tag(@art_work.image, style:'width:100%') %>
+    </div>
   </div>
+    
+    <div class="container" style="padding-top:30px">
+      <h5>Description:</h5>
+      <h6> <%= @art_work.description %> </h6>
+      </div>
 
-<%= link_to 'Edit Post', edit_art_work_path(@art_work) %>
+    <div class="container" style="padding-top:30px">
+      <h5>Comments Here:</h5>
+    <div>
 
-<%= button_to 'delete', @art_work, :method => :delete %>
-
-<%# takes you to artwork index (my submissions) %>
-<%= link_to @art_work.challenge.name, challenge_art_works_path(@art_work) %>
-
-<h4>Comments Here:</h4>
 
 
 
