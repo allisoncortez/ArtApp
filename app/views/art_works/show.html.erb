@@ -10,21 +10,26 @@
      <div style="width:300px; height:auto;">
         <%= image_tag(@art_work.image, style:'width:100%') %>
     </div>
-  </div>
+ 
     
    
-    <div class="container" style="padding-top:30px">
-      <h5>Description:</h5>
-      <h6> <%= @art_work.description %> </h6>
-      </div>
+    
+      <h4>Description</h4>
+      <p> <%= @art_work.description %> </p>
+    
       
-
-    <div class="container" style="padding-top:30px">
-      <h5>Comments Here:</h5>
-    <div>
+      <h4>Comments</h4>
+      <%= link_to "Add a Comment", new_art_work_comment_path(@art_work) %>
+      <p>iterate here</p> 
+        <div class="card" style="width:300px">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"> comment 1 </li>
+          </ul>
+        </div>
 
     <%= link_to 'Back to Challenge', challenge_path(@challenge) %>
 
+ </div>
 
 
 

@@ -33,6 +33,10 @@ Comments
 - belongs_to :art_piece
 - content
 
+getting challenge cards to be linkable(the entire card)
+
+<%= link_to "View Image", image_path(a.image.id), class: 'btn btn-secondary stretched-link' %>
+
 
 
 
