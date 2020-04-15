@@ -15,18 +15,19 @@ class CommentsController < ApplicationController
 
     def new
        @art_work = ArtWork.find_by_id(params[:art_work_id])
-
         @comment = @art_work.comments.build
+        
 
     end
 
     def create
+        # @art_work = ArtWork.find_by_id(params[:art_work_id])
         
         @comment = current_user.comments.build(comment_params)
-        # @art_work = ArtWork.find_by_id(params[:art_work_id])
+        
         if @comment.save
-            redirect_to art_work_path(@art_work)
-            # redirect_to comments_path
+            # redirect_to art_work_path(@art_work)
+            redirect_to comments_path(@comment)
         else
             render :new
         end
@@ -58,6 +59,6 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:comment).permit(:content, :art_work_id)
+        params.require(:comment).permit(:content)
     end
 end

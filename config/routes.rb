@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 #write custom routes ABOVE
+
   root 'sessions#home'
 
   get '/signup' => 'users#new'
@@ -14,13 +15,11 @@ Rails.application.routes.draw do
 
   # get '/auth/:provider/callback' => 'sessions#omniauth'
 
-  # resources :comments
+  
   
   resources :art_works do
     resources :comments, only: [:new,:create, :index, :show]
   end
-
-  # resources :challenges
 
   resources :challenges, only: [:show, :index] do
     resources :art_works, only: [:new, :index, :show]
@@ -31,8 +30,7 @@ Rails.application.routes.draw do
   end
 
 
-  # posts/:post_id/comments
-  # posts/:post_id/comments/new
+
 
 
 
