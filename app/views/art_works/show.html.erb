@@ -1,37 +1,25 @@
-
-
-  <div class="container" style="padding-top:60px">
+  <div class="container" style="padding-top:60px; padding-bottom:100px">
     <%= link_to 'Edit Post', edit_art_work_path(@art_work), class: 'btn btn-primary'%>
 
-
     <h3> <%= @art_work.title %> </h3>
-    <h6> By: <%= link_to @art_work.user.first_name, user_art_works_path(current_user) %> </h6>
+    <h6> By: <%= link_to @art_work.user.first_name, user_path(current_user) %> </h6>
 
      <div style="width:300px; height:auto;">
         <%= image_tag(@art_work.image, style:'width:100%') %>
     </div>
  
-    
-   
-    
       <h4>Description</h4>
       <p> <%= @art_work.description %> </p>
     
-      
       <h4>Comments</h4>
       <%= link_to "Add a Comment", new_art_work_comment_path(@art_work) %>
-      <p>iterate here</p> 
+      <% @art_work.comments.each do |c| %> 
         <div class="card" style="width:300px">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"> comment 1 </li>
+            <li class="list-group-item"> <%= c.content %> </li>
           </ul>
         </div>
+        <% end %>
 
-    <%= link_to 'Back to Challenge', challenge_path(@challenge) %>
-
+    <%= link_to 'Back to Challenge', challenge_path(@art_work.challenge) %>
  </div>
-
-
-
-
-

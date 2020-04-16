@@ -22,7 +22,12 @@
          <ul class="navbar-nav mr-auto">
            <% if logged_in? %>
            <li class="nav-link">
-             <%= link_to "Home", user_art_works_path(current_user) %>
+             <%= link_to "Home", root_path %>
+             </li>
+           <li class="nav-link">
+             <%= link_to "My Submissions", user_art_works_path(current_user) %>
+             </li>
+             
            </li>
            <% end %>
            <li class="nav-link">

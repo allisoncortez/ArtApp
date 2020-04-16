@@ -21,13 +21,12 @@ class CommentsController < ApplicationController
     end
 
     def create
-        # @art_work = ArtWork.find_by_id(params[:art_work_id])
-        
         @comment = current_user.comments.build(comment_params)
+        @art_work = @comment.art_work
         
         if @comment.save
-            # redirect_to art_work_path(@art_work)
-            redirect_to comments_path(@comment)
+            redirect_to art_work_path(@art_work)
+            # redirect_to challenges_path
         else
             render :new
         end
@@ -39,18 +38,21 @@ class CommentsController < ApplicationController
 
     def edit
         @comment = Comment.find_by(id: params[:id])
+        @art_work = @comment.art_work
         
         if @comment.user_id != current_user.id 
             flash[:message] = "Oops, you can't edit this."
-            redirect_to challenge_path
+            redirect_to art_work_path(@art_work)
         end
 
     end
 
     def update
         @comment = Comment.find_by(id: params[:id])
+        @art_work = @comment.art_work
+    
         if @comment.update(comment_params)
-            redirect_to comment_path(@comment)
+            redirect_to art_work_path(@art_work)
         else 
             render :edit 
         end
@@ -59,6 +61,6 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:comment).permit(:content)
+        params.require(:comment).permit(:content, :art_work_id)
     end
 end
