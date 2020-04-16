@@ -23,8 +23,15 @@ Rails.application.routes.draw do
   resource :comments
 
   resources :art_works do
-    resources :comments, only: [:new,:create]
+    resources :comments
   end
+
+    # resources :articles do
+    #   resources :comments, shallow: true
+    # end
+
+    # , only: [:new,:create]
+ 
 
  
 

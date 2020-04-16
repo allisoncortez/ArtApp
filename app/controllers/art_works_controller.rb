@@ -41,7 +41,6 @@ class ArtWorksController < ApplicationController
     end 
 
     def edit
-
           @art_work = ArtWork.find_by(id: params[:id])
           @challenge = @art_work.challenge
         if @art_work.user_id != current_user.id 
@@ -55,7 +54,7 @@ class ArtWorksController < ApplicationController
         #can only update if YOU are the owner.. need to add this in.
         @art_work = ArtWork.find_by(id: params[:id])
         if @art_work.update(art_work_params)
-            redirect_to art_work_path(@art_work)
+            redirect_to challenge_art_work_path(@art_work)
         else 
             render :edit 
         end
