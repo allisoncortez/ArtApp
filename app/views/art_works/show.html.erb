@@ -13,7 +13,7 @@
     
       <h4>Comments</h4>
       <%= link_to "Add a Comment", new_art_work_comment_path(@art_work) %>
-      <% current_user.comments.each do |c| %> 
+      <% @art_work.comments.each do |c| %> 
         <!-- <div class="card" style="width:300px"> -->
           <ul class="list-group list-group-flush">
             <li class="list-group-item"> 
@@ -25,7 +25,9 @@
                 <button type="submit" class="destroy"> delete </button>
                 <% end %> -->
 
+                <% if current_user && current_user == c.user %>
                 <%= button_to "delete", art_work_comment_path(c.art_work,c), :method => :delete, remote: true, style:'float:right' %>
+                <% end %>
 
             </li>
           </ul>
