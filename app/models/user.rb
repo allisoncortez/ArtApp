@@ -8,8 +8,9 @@ class User < ApplicationRecord
     has_secure_password
     #authenticate, validate password/password confirmation
 
-    # validates :first_name, presence: true
-    # validates :email
+    validates :first_name, presence: true
+    validates :password, length: { in: 6..20 }
+
     # validates :password
 
     
