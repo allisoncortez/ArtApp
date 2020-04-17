@@ -2,14 +2,20 @@
             <%= flash[:message] %>
           <% end %>
 
-<div style="width:300px; height:auto; padding-top:60px">
-  <%= image_tag(@art_work.image, style:'width:100%') %>
-</div>
-    
-<%= render 'form'%>
 
-<div class="container">
-  <%= button_to 'delete', @art_work, :method => :delete %>
+<!-- <div class="container" style="padding-top:60px"> -->
+<div class="container" style="padding-top:60px; padding-bottom:60px">
+
+  <div class="field" style="width:300px; height:auto; padding-top:60px">
+    <%= image_tag(@art_work.image, style:'width:100%') %>
+  </div>
+      
+  <%= render 'form'%>
+
+  <div class="field">
+    <%= button_to 'delete', @art_work, :method => :delete %>
+  </div>
+  
 </div>
 
 

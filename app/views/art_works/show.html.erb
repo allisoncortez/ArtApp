@@ -1,6 +1,7 @@
   
 
-  
+  <%= render partial: "layouts/errors", locals: {object: @art_work} %>
+
   <div class="container" style="padding-top:60px; padding-bottom:100px">
     <%= link_to 'Edit Post', edit_art_work_path(@art_work), class: 'btn btn-primary'%>
 
