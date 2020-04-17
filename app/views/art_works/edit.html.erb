@@ -1,4 +1,7 @@
-      
+<% if flash[:message] %>
+            <%= flash[:message] %>
+          <% end %>
+
 <div style="width:300px; height:auto; padding-top:60px">
   <%= image_tag(@art_work.image, style:'width:100%') %>
 </div>

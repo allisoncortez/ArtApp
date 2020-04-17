@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :art_works do
     resources :comments
-  end
+     end
 
     # resources :articles do
     #   resources :comments, shallow: true
