@@ -1,7 +1,7 @@
 class ChallengesController < ApplicationController
 
     def index
-        @challenges = Challenge.all
+        @challenges = Challenge.all.alpha
     end
 
     def new

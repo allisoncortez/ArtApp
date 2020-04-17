@@ -60,8 +60,10 @@ class ArtWorksController < ApplicationController
 
     def destroy
         # @art_work = ArtWork.find_by(id: params[:id])
+        # challenge = @art_work.challenge
         @art_work.destroy
         redirect_to art_works_path
+        # redirect_to challenge_art_works_path(@art_work.challenge)
     end
 
     private

@@ -7,7 +7,12 @@ class ArtWork < ApplicationRecord
 
     #validations
     validates :title, presence: true
+    
 
+    #scope: you can only submit one artwork per challenge..
+    # def too_many_posts
+        
+    # end
 
 
     
