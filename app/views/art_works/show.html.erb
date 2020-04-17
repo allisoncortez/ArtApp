@@ -25,7 +25,7 @@
                 <button type="submit" class="destroy"> delete </button>
                 <% end %> -->
 
-                <% if current_user && current_user == c.user %>
+                <% if current_user && current_user == c.user || current_user == c.art_work.user %>
                 <%= button_to "delete", art_work_comment_path(c.art_work,c), :method => :delete, remote: true, style:'float:right' %>
                 <% end %>
 
