@@ -4,31 +4,32 @@
 
   <div class="container" style="padding-top:60px; padding-bottom:100px">
 
+  <%= link_to 'Back to Challenge', challenge_path(@art_work.challenge) %><br>
 
-  <!-- edit/delete buttons -->
+  <!-- image view -->
+    <div style="width:300px; height:auto;">
+        <%= image_tag(@art_work.image, style:'width:100%') %>
+    </div>
+
+    <!-- title/author -->
+    <br><h3> <%= @art_work.title %> </h3>
+    <h6> By: <%= link_to @art_work.user.first_name, user_art_works_path(@art_work.user) %> </h6>
+ 
+    <!--<br><h4>Description</h4>
+    <p> <%= @art_work.description %> </p> -->
+
+    <h6><%= link_to "Add a Comment", new_art_work_comment_path(@art_work), class: 'btn btn-primary' %></h6><br>
+
+    <!-- edit/delete buttons -->
     <% if @art_work.user == current_user %>
-    <%= link_to 'Edit Submission', edit_art_work_path(@art_work), class: 'btn btn-primary'%>
+    <%= link_to 'Edit Submission', edit_art_work_path(@art_work)%><br><br>
     <%= button_to 'delete', @art_work, :method => :delete %>
     <% end %>
     <!-- end -->
-
-  <!-- title/author -->
-    <h3> <%= @art_work.title %> </h3>
-    <h6> By: <%= link_to @art_work.user.first_name, user_art_works_path(@art_work.user) %> </h6>
-
-  <!-- image view -->
-     <div style="width:300px; height:auto;">
-        <%= image_tag(@art_work.image, style:'width:100%') %>
-    </div>
- 
-      <br><h4>Description</h4>
-      <p> <%= @art_work.description %> </p>
-      <h6><%= link_to "Add a Comment", new_art_work_comment_path(@art_work), class: 'btn btn-primary' %></h6><br>
     
-      
-      
+    <!-- comments -->
       <% @art_work.comments.each do |c| %> 
-        <!-- <div class="card" style="width:300px"> -->
+        <div class="card" style="width:300px">
           <ul class="list-group list-group-flush">
             <li class="list-group-item"> 
                 <b><%= c.user.first_name %></b>: <%= c.content %>
@@ -38,9 +39,7 @@
                 <% end %>
             </li>
           </ul>
-        <!-- </div> -->
+        </div>
       <% end %>
-
-    <br><%= link_to 'Back to Challenge', challenge_path(@art_work.challenge) %>
     
  </div>
