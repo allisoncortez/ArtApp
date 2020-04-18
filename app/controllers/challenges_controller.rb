@@ -5,7 +5,7 @@ class ChallengesController < ApplicationController
     end
 
     def new
-        @challenge = new
+        @challenge = Challenge.new
     end
 
     def create
@@ -18,7 +18,7 @@ class ChallengesController < ApplicationController
     private
 
     def challenge_params
-        params.require(:challenge).permit(:name, :instructions, :image)
+        params.require(:challenge).permit(:name, :instructions, :image, :art_work_id)
     end
 
 end

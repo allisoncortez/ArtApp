@@ -3,23 +3,25 @@
 
   <div class="form-row">
     <div class="card-body">
+
       <%= form_for(@art_work) do |f| %>
 
         <%= f.hidden_field :challenge_id %>
               
-        <% if !@art_work.image %>
-          <div class="col-nd-4 offset-nd-4">
+        <!--<% if !@art_work.image %> -->
+          <div class="form-group">
             <%= f.label :image %><br>
             <%= f.file_field :image %>
           </div>
-        <% end %>
+       
+        <!-- <% end %> -->
           
-        <div class="field">
+        <div class="form-group">
           <%= f.label :title %><br>
           <%= f.text_field :title %>
         </div>
 
-        <div class="field">
+        <div class="form-group">
           <%= f.label :description %><br>
           <%= f.text_field :description %>
         </div>

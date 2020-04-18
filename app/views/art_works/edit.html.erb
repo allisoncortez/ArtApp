@@ -1,22 +1,18 @@
-<% if flash[:message] %>
-            <%= flash[:message] %>
-          <% end %>
 
 
-<!-- <div class="container" style="padding-top:60px"> -->
 <div class="container" style="padding-top:60px; padding-bottom:60px">
 
+  <!-- <% if flash[:message] %>
+    <%= flash[:message] %>
+  <% end %> -->
+
+  
+<!--image view of current image being edited -->
   <div class="field" style="width:300px; height:auto; padding-top:60px">
     <%= image_tag(@art_work.image, style:'width:100%') %>
   </div>
       
   <%= render 'form'%>
-
-<!-- should this be here or in _form helper -->
-
-  <div class="field">
-    <%= button_to 'delete', @art_work, :method => :delete %>
-  </div>
   
 </div>
 

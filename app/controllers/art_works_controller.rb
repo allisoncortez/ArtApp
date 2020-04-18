@@ -67,7 +67,8 @@ class ArtWorksController < ApplicationController
         # @art_work = ArtWork.find_by(id: params[:id])
         # challenge = @art_work.challenge
         @art_work.destroy
-        redirect_to art_works_path
+        redirect_to challenge_path(@art_work.challenge)
+        
         # redirect_to challenge_art_works_path(@art_work.challenge)
     end
 
