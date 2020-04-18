@@ -35,7 +35,7 @@ Rails.application.routes.draw do
 
   #for Github 
   get '/auth/github/callback', to: 'sessions#github_login'
-  # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  # match '/auth/github/callback', to: 'sessions#github_login', via: [:get, :post]
 
  
 
