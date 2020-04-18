@@ -9,12 +9,21 @@
   <% if @art_works.empty? %>
     <h2> No submissions yet. <%= link_to "Join a challenge!", challenges_path %> </h2>
   <% else %>
+  <div class="card-columns">
     <% @art_works.each do |a| %>
       <!-- <%= link_to a.title, art_work_path(a) %> -->
-      <div class="card"style="width:300px; height:auto;">
-        <%= image_tag(a.image, style:'width:100%') %>
+      <!--<div class="card"style="width:300px; height:auto;"> -->
+      <div class="card">
+        <div class="card-body p-1">
+          <!-- <%= image_tag(a.image, style:'width:100%') %> -->
+          <!-- <%= link_to a.title, art_work_path(a), class: 'btn btn-secondary stretched-link' %> -->
+          <%= link_to image_tag(a.image, style:'width:100%'), art_work_path(a), class: 'stretched-link' %>
+        </div>
       </div><br>
     <% end %>
+    </div>
+
+
   <% end %>
 
 </div>

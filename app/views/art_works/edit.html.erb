@@ -1,19 +1,45 @@
-
+<%= render partial: "layouts/errors", locals: {object: @art_work} %>
 
 <div class="container" style="padding-top:60px; padding-bottom:60px">
-
-  <!-- <% if flash[:message] %>
-    <%= flash[:message] %>
-  <% end %> -->
-
   
 <!--image view of current image being edited -->
-  <div class="field" style="width:300px; height:auto; padding-top:60px">
+  <div class="field" style="width:300px; height:auto">
+    <%= link_to 'Back to Challenge', challenge_path(@art_work.challenge) %><br>
     <%= image_tag(@art_work.image, style:'width:100%') %>
   </div>
       
-  <%= render 'form'%>
+  <div class="form-row">
+    <div class="card-body">
+      <%= form_for(@art_work) do |f| %>
+
+            <%= f.hidden_field :challenge_id %>
+                
+            <!--<div class="form-group">
+                <%= f.label :image %><br>
+                <%= f.file_field :image %>
+            </div>-->
+            
+            <div class="form-group">
+                <%= f.label :title %><br>
+                <%= f.text_field :title %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :description %><br>
+                <%= f.text_field :description %>
+            </div>
+
+            <div class="actions">
+                <%= f.submit "Submit", class: 'btn btn-primary'%>
+            </div>
+        
+        <% end %>
+
+    </div>
+  </div>
   
 </div>
+
+
 
 

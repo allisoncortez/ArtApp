@@ -8,13 +8,12 @@
 
         <%= f.hidden_field :challenge_id %>
               
-        <!--<% if !@art_work.image %> -->
+        <!-- <% if !@art_work.image %> -->
           <div class="form-group">
             <%= f.label :image %><br>
             <%= f.file_field :image %>
           </div>
-       
-        <!-- <% end %> -->
+        <!--<% end %> -->
           
         <div class="form-group">
           <%= f.label :title %><br>
@@ -30,6 +29,8 @@
           <%= f.submit "Submit", class: 'btn btn-primary'%>
         </div>
         <br>
+
+        <!-- <button class="btn btn-lg btn-primary btn-inline" type="submit">Submit</button>-->
 
         <!-- <% if !@art_work.image == nil %>
           <div class="actions">

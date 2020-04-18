@@ -1,40 +1,37 @@
+<%= render partial: "layouts/errors", locals: {object: @art_work} %>
 
-    
-        <div class="card-body">
+<div class="form-row">
+    <div class="card-body">
 
-        <!-- specific to new form -->
-          <h2> <%= @art_work.challenge.name %> </h2>
-          <p>challenge instructions</p>
-          <!--- end here -->
+    <!-- specific to new form -->
+        <h2> <%= @art_work.challenge.name %> </h2>
+        <p>challenge instructions</p>
+        <!--- end here -->
 
-
-          <%= form_for(@art_work) do |f| %>
+        <%= form_for(@art_work) do |f| %>
 
             <%= f.hidden_field :challenge_id %>
+                
+            <div class="form-group">
+                <%= f.label :image %><br>
+                <%= f.file_field :image %>
+            </div>
             
             <div class="form-group">
-            <%= f.label :image %><br>
-            <%= f.file_field :image %>
-            </div>
-        
-            <div class="form-group">
-            <%= f.label :title %><br>
-            <%= f.text_field :title %>
+                <%= f.label :title %><br>
+                <%= f.text_field :title %>
             </div>
 
             <div class="form-group">
-            <%= f.label :description %><br>
-            <%= f.text_field :description %>
+                <%= f.label :description %><br>
+                <%= f.text_field :description %>
             </div>
 
             <div class="actions">
                 <%= f.submit "Submit", class: 'btn btn-primary'%>
             </div>
-            
-          <!-- <button class="btn btn-lg btn-primary btn-inline" type="submit">Submit</button>-->
         
-          <% end %>
-        </div>
-   
-
+        <% end %>
+    </div>
+</div>
 
