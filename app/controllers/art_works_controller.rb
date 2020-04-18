@@ -18,7 +18,9 @@ class ArtWorksController < ApplicationController
     end
 
     def new
+        
         if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
+            
             @art_work = @challenge.art_works.build
         else
           @art_work = ArtWork.new  
