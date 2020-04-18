@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-#write custom routes ABOVE
 
   root 'sessions#home'
 
@@ -33,6 +32,10 @@ Rails.application.routes.draw do
   resources :users do
     resources :art_works, shallow: true
   end
+
+  #for Github 
+  get '/auth/github/callback', to: 'sessions#github_login'
+  # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 
  
 
