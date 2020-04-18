@@ -4,7 +4,7 @@ class Challenge < ApplicationRecord
     has_many :users, through: :art_works
     
     #scope methods
-    scope :alpha, -> { order(:name) }
+    scope :alpha, -> {order(:name)}
 
 
     #maybe one for challenges: most participants(users) using this logic

@@ -22,8 +22,11 @@ class SessionsController < ApplicationController
     end
 
     def github_login
-        @user = User.find_or_create_by( uid: auth['uid']) do |u|
+       
+        @user = User.find_or_create_by(uid: auth['uid']) do |u|
             u.first_name = auth['info']['name']
+            u.provider = auth['provider']
+            u.uid = auth['uid']
             u.email = auth['info']['email']
             u.password = SecureRandom.hex
         end
@@ -37,7 +40,7 @@ class SessionsController < ApplicationController
 
     end
 
-    # private
+    private
 
     def auth
         request.env['omniauth.auth']
