@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
     def redirect_if_not_logged_in
         redirect_to '/' if !logged_in?
     end
+
+    def log_in(user)
+        session[:user_id] = user.id
+        redirect_to user_path(user)    
+    end
 end

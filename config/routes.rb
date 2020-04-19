@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
+  get '/auth/facebook/callback' => 'sessions#create'
+
   #login
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -35,21 +37,13 @@ Rails.application.routes.draw do
 
   #for Github 
   # get '/auth/github/callback', to: 'sessions#github_login'
-  get '/auth/github/callback', to: 'sessions#create'
+
+
+  # get '/auth/facebook/callback' => 'sessions#facebook_login'
+
+
+  # get '/auth/github/callback', to: 'sessions#create'
   # match '/auth/github/callback', to: 'sessions#github_login', via: [:get, :post]
-
- 
-
-
-
-
-
-
-
-
-
-
-
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,5 +1,5 @@
 class ArtWorksController < ApplicationController
-    before_action :redirect_if_not_logged_in
+    # before_action :redirect_if_not_logged_in
     before_action :set_art_work, except: [:index, :new, :create]
 
     def index
@@ -18,15 +18,15 @@ class ArtWorksController < ApplicationController
     end
 
     def new
-        
         if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
-            
+
             @art_work = @challenge.art_works.build
         else
           @art_work = ArtWork.new  
         end
     end
 
+    
     def create
         @art_work = current_user.art_works.build(art_work_params)
         if @art_work.save
