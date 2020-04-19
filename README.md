@@ -5,7 +5,7 @@ ArtMake is an app designed to encourage artist collaboration and creativity thro
 
 ## Installation
 
-To get Plantmom up and running, fork and clone this repo:
+To get ArtMake up and running, fork and clone this repo:
 
 ``https://github.com/allisoncortez/ArtApp.git``
 
@@ -23,12 +23,6 @@ In the terminal, please run ``rails s``. It will open up a local server address 
 The first window users are greeted with is a welcome page!
 You can browse through existing challenges BUT you won't be able to join any challenges unless you've signed up for an account.
 
-The main navbar inclues
-1. Add a Plant
-2. All Plants
-3. My Plants (this lets you view the plants you've logged)
-4. Logout
-
 If you want to know more about my process, check out my blog:
 linkhere
 
@@ -43,7 +37,7 @@ linkhere
 Bug reports and pull requests are welcome. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
-##Authors
+## Authors
 
 [Allison Cortez](https://github.com/allisoncortez)
 
