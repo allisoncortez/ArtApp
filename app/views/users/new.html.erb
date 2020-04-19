@@ -1,4 +1,6 @@
-<%= render partial: "layouts/errors", locals: {object: @user} %>
+<!--<%= render partial: "layouts/errors", locals: {object: @user} %> -->
+
+<%= has_errors?(@user) %>
 
 <div class="row justify-content-center align-items-center">
   <div class="col-nd-4 offset-nd-4">

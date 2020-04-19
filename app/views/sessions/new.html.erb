@@ -4,9 +4,10 @@
     <div class="card mb-3">
         <div class="card-body">
 
-            <%= render partial: "layouts/errors", locals: {object: @user} %>
-            
+            <!--<%= render partial: "layouts/errors", locals: {object: @user} %>-->
             <!--<%= flash[:message] if flash[:message]%> -->
+
+            <%= has_errors?(@user) %>
 
             <%= form_for :user do |f| %>
               <div class="form-group">
