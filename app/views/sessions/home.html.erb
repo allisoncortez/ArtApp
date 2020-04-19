@@ -1,9 +1,9 @@
-<div class="container">
-<h1> Welcome to ArtApp</h1>
-<br>
+<div class="container" style="padding-top:60px">
+<h1> Welcome to ArtMake</h1>
 
-    <%= link_to('Log in with Facebook', '/auth/facebook') %>
-
+<% if !session[:user_id] %>
+<h6><%= link_to('Log in with Facebook', '/auth/facebook') %><h6>
+<% end %>
 </div>
 
 
