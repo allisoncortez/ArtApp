@@ -13,7 +13,10 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_if_not_logged_in
-        redirect_to '/' if !logged_in?
+        if !logged_in?
+            flash[:message] = "Oops, you're not logged in."
+            redirect_to '/' 
+        end
     end
 
     def log_in(user)

@@ -1,5 +1,5 @@
 class ArtWorksController < ApplicationController
-    # before_action :redirect_if_not_logged_in
+    before_action :redirect_if_not_logged_in, except: [:index, :show]
     before_action :set_art_work, except: [:index, :new, :create]
 
     def index
@@ -8,27 +8,23 @@ class ArtWorksController < ApplicationController
         # @art_works = current_user.art_works
         @art_works = @user.art_works
             
-        # else
-            # flash[:message] = "Oops! That art doesn't exist." ..we would need to redirect to something, if we use flash here..
-            # @error = "Oops! That user doesn't exist." if params[:user_id]
-            # @art_works = ArtWork.all 
-            # @user = @art_work.user
-
-        # end
     end
 
     def new
         if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
-
             @art_work = @challenge.art_works.build
         else
-          @art_work = ArtWork.new  
+        # #     flash[:message] = "Oops, you're not logged in."
+        # #     # redirect_to challenge_art_works_path(@art_work)
+        # #     redirect_to challenge_path(@challenge)
+            @art_work = ArtWork.new  
         end
     end
 
     
     def create
         @art_work = current_user.art_works.build(art_work_params)
+
         if @art_work.save
             redirect_to art_work_path(@art_work), notice: "Artwork uploaded successfully"
             # artwork index path: challenge_art_works_path(@art_work)
