@@ -4,18 +4,15 @@ class ArtWork < ApplicationRecord
     belongs_to :challenge
     has_many :comments
     
-
     #validations
     validates :title, presence: true
     validate :correct_image
-
 
      #scope: you can only submit one artwork per challenge..
     # def too_many_posts
     # end
 
     
-
     private
 
     def correct_image

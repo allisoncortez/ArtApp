@@ -4,5 +4,4 @@ class Comment < ApplicationRecord
 
     validates :content, presence: true
 
-    # validates :post, uniqueness: {scope: :user_id, message:"only one comment per user"}
 end

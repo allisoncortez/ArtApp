@@ -6,7 +6,6 @@ class Challenge < ApplicationRecord
     #scope methods
     scope :alpha, -> {order(:name)}
 
-
     #maybe one for challenges: most participants(users) using this logic
     # scope :most_comments, -> {joins(:comments).group('posts.id').order('count(posts.id) desc'}
 end
