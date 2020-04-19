@@ -5,24 +5,21 @@ class SessionsController < ApplicationController
         @user = User.new
     end
 
-    #facebook
-    # def create
-    #     @user = User.find_or_create_by(uid: auth['uid']) do |u|
-    #                 u.first_name = auth['info']['name']
-    #                 u.email = auth['info']['email']
-    #                 # u.image = auth['info']['image']
-    #                 u.password = SecureRandom.hex
-    #               end
-    #             #   
-    #             # binding.pry
-    #               session[:user_id] = @user.id
-                  
-    #             #   render '/'
-    #               redirect_to '/'
-                
-    # end
-
+    #works for regular users
     def create
+        user = User.find_by(email: params[:user][:email])
+        if user && user.authenticate(params[:user][:password])
+            session[:user_id] = user.id
+            redirect_to challenges_path
+        else
+            flash[:message] = "Invalid credentials, please try again."
+            redirect_to "/login"
+        end
+    end
+
+
+    #facebook login that works
+    def facebook_login
         if params[:first_name]
             @user = User.find_by(first_name: params[:first_name])
             if @user && @user.authenticate(params[:password])
