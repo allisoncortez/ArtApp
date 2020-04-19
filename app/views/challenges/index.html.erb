@@ -1,13 +1,13 @@
+
+
+
+
 <div class="container" style="padding-top:60px">
-
   <%# link_to "Make a New Challenge", new_challenge_path %>
-  </div>
 
-
-
-<% @challenges.each do |c| %>
-<div class="container">
-    <h2><%= link_to c.name, challenge_path(c) %></h2>
-  </div>
-<% end %>
+  <% @challenges.each do |c| %>
+    <div class="container">
+      <h2><%= link_to c.name, challenge_path(c) %></h2>
+    </div>
+  <% end %>
 </div>

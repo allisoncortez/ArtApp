@@ -4,12 +4,12 @@ class ChallengesController < ApplicationController
         @challenges = Challenge.all.alpha
     end
 
-    def new
-        @challenge = Challenge.new
-    end
+    # def new
+    #     @challenge = Challenge.new
+    # end
 
-    def create
-    end
+    # def create
+    # end
 
     def show
         @challenge = Challenge.find_by(id: params[:id])

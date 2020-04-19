@@ -1,5 +1,6 @@
 <div class="form-row">
-    
+
+        <%= has_errors?(@comment) %>
         <div class="card-body">
           <%= form_for(@comment) do |f| %>
             <%= f.hidden_field :art_work_id %>

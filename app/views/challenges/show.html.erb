@@ -1,14 +1,13 @@
 
-<%= render partial: "layouts/errors", locals: {object: @challenge} %>
-
 <div class="row justify-content-center align-items-center" style="padding-top:60px">
-  <div class="col-nd-4 ">
-<h1><%= @challenge.name %></h1>
-<!-- <p>Participants: <%= @challenge.users.count %> </p> -->
-<p>challenge instructions here</p>
-<%= link_to "Submit Your Work", new_challenge_art_work_path(@challenge), class: 'btn btn-primary' %>
-<br><br>
-</div>
+
+  <div class="col-nd-4 text-center">
+    <h1><%= @challenge.name %></h1>
+    <p>Total Submissions: <%= @challenge.art_works.count %> </p>
+    <p>challenge instructions here</p>
+    <%= link_to "Submit Your Work", new_challenge_art_work_path(@challenge), class: 'btn btn-primary' %>
+    <br><br>
+  </div>
 
 
 
@@ -19,12 +18,11 @@
             <div class="card-body p-1">
               <p class="text-centered"><%= image_tag a.image, class: 'd-block w-100' %><p>
               <%= link_to a.title, art_work_path(a) %>
-       
             </div>
           </div>
-      
       <% end %>
      <div>
+     
 </div>
 
 
