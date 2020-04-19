@@ -2,15 +2,10 @@ class ArtWork < ApplicationRecord
     has_one_attached :image
     belongs_to :user
     belongs_to :challenge
-    has_many :comments
+    has_many :comments, dependent: :destroy
     
-    #validations
     validates :title, presence: true
     validate :correct_image
-
-     #scope: you can only submit one artwork per challenge..
-    # def too_many_posts
-    # end
 
     
     private

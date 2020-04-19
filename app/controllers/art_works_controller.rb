@@ -11,16 +11,29 @@ class ArtWorksController < ApplicationController
     end
 
     def new
-        # if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
-        if @challenge = Challenge.find_by_id(params[:challenge_id])
+        if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
+
             @art_work = @challenge.art_works.build
         else
+          @art_work = ArtWork.new  
         # #     flash[:message] = "Oops, you're not logged in."
         # #     # redirect_to challenge_art_works_path(@art_work)
         # #     redirect_to challenge_path(@challenge)
             @art_work = ArtWork.new  
         end
     end
+
+    # def new
+    #     # if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
+    #     if @challenge = Challenge.find_by_id(params[:challenge_id])
+    #         @art_work = @challenge.art_works.build
+    #     else
+    #     # #     flash[:message] = "Oops, you're not logged in."
+    #     # #     # redirect_to challenge_art_works_path(@art_work)
+    #     # #     redirect_to challenge_path(@challenge)
+    #         @art_work = ArtWork.new  
+    #     end
+    # end
 
     
     def create
@@ -42,7 +55,6 @@ class ArtWorksController < ApplicationController
     end 
 
     def edit
-
         #   @art_work = ArtWork.find_by(id: params[:id])
           @challenge = @art_work.challenge
         if @art_work.user_id != current_user.id 
@@ -64,9 +76,10 @@ class ArtWorksController < ApplicationController
 
     def destroy
         # @art_work = ArtWork.find_by(id: params[:id])
-        # challenge = @art_work.challenge
+        @challenge = @art_work.challenge
+       
         @art_work.destroy
-        redirect_to challenge_path(@art_work.challenge)
+        redirect_to challenge_path(@challenge)
         
         # redirect_to challenge_art_works_path(@art_work.challenge)
     end

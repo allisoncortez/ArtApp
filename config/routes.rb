@@ -23,8 +23,12 @@ Rails.application.routes.draw do
 
   resource :comments
 
+  # resources :challenges do
+  #   resources :art_works, shallow: true
+  # end
+
   resources :challenges do
-    resources :art_works, shallow: true
+    resources :art_works
   end
 
   resources :users do

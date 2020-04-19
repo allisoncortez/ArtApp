@@ -23,7 +23,11 @@
     <!-- edit/delete buttons -->
     <% if @art_work.user == current_user %>
     <%= link_to 'Edit Submission', edit_art_work_path(@art_work)%><br>
-    <%= button_to 'delete art', @art_work, :method => :delete %><br><br>
+
+    <!-- <%= button_to 'delete', art_work_path(@art_work), :method => :delete %><br><br> -->
+
+    <%= button_to 'delete', @art_work, :method => :delete %>
+
     <% end %>
     <!-- end -->
     
