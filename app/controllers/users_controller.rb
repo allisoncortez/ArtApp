@@ -14,6 +14,7 @@ class UsersController < ApplicationController
             # flash[:message] = "Invalid credentials, please try again."
             # redirect_to "/signup"
             render :new
+            
 
         end
     end

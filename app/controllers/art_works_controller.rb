@@ -11,7 +11,8 @@ class ArtWorksController < ApplicationController
     end
 
     def new
-        if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
+        # if params[:challenge_id] && @challenge = Challenge.find_by_id(params[:challenge_id])
+        if @challenge = Challenge.find_by_id(params[:challenge_id])
             @art_work = @challenge.art_works.build
         else
         # #     flash[:message] = "Oops, you're not logged in."

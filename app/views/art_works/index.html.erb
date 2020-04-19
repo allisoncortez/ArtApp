@@ -1,18 +1,17 @@
 <div class="container" style="padding-top:60px; padding-bottom:60px">
 
   <% if current_user == @user %>
-  <h1> My Submissions </h1>
+    <h1> My Submissions </h1>
   <% else %>
     <h1> <%= @user.first_name %>'s Submissions </h1>
   <% end %>
 
   <% if @art_works.empty? %>
     <h2> No submissions yet. <%= link_to "Join a challenge!", challenges_path %> </h2>
+
   <% else %>
   <div class="card-columns">
     <% @art_works.each do |a| %>
-      <!-- <%= link_to a.title, art_work_path(a) %> -->
-      <!--<div class="card"style="width:300px; height:auto;"> -->
       <div class="card">
         <div class="card-body p-1">
           <!-- <%= image_tag(a.image, style:'width:100%') %> -->
@@ -22,7 +21,6 @@
       </div><br>
     <% end %>
     </div>
-
 
   <% end %>
 

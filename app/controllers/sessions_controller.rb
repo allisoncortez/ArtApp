@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to challenges_path
         else
+            #should just render :new
             flash[:message] = "Invalid credentials, please try again."
             redirect_to "/login"
         end
