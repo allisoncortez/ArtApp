@@ -1,5 +1,6 @@
 
-<div class="row justify-content-center align-items-center" style="padding-top:60px">
+<!-- <div class="row justify-content-center align-items-center" style="padding-top:60px"> -->
+<div class="container" style="padding-top:60px; padding-bottom:60px">
 
   <div class="col-nd-4 text-center">
     <h1><%= @challenge.name %></h1>
@@ -16,8 +17,10 @@
        
           <div class="card">
             <div class="card-body p-1">
-              <p class="text-centered"><%= image_tag a.image, class: 'd-block w-100' %><p>
-              <%= link_to a.title, art_work_path(a) %>
+              <!--< p class="text-centered"><%= image_tag a.image, class: 'd-block w-100' %><p>
+              <%= link_to a.title, art_work_path(a) %> -->
+              <%= link_to image_tag(a.image, style:'width:100%'), art_work_path(a), class: 'stretched-link' %>
+              
             </div>
           </div>
       <% end %>
