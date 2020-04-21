@@ -9,7 +9,6 @@ class ArtWork < ApplicationRecord
 
     
     private
-
     def correct_image
         if image.attached? && !image.content_type.in?(%w(image/jpeg image/png))
             errors.add(:image, 'must be a JPEG or PNG.')

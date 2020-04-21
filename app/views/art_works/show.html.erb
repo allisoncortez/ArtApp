@@ -1,7 +1,4 @@
   
-
-  <%= render partial: "layouts/errors", locals: {object: @art_work} %>
-
   <div class="container" style="padding-top:60px; padding-bottom:100px">
 
   <%= link_to 'Back to Challenge', challenge_path(@art_work.challenge) %><br>
@@ -17,21 +14,17 @@
  
     <!--<br><h4>Description</h4>
     <p> <%= @art_work.description %> </p> -->
-
     <h6><%= link_to "Add a Comment", new_art_work_comment_path(@art_work), class: 'btn btn-primary' %></h6><br>
 
     <!-- edit/delete buttons -->
     <% if @art_work.user == current_user %>
     <%= link_to 'Edit Submission', edit_art_work_path(@art_work)%><br>
-
     <!-- <%= button_to 'delete', art_work_path(@art_work), :method => :delete %><br><br> -->
-
-    <%= button_to 'delete', @art_work, :method => :delete %>
-
+    <%= button_to 'delete', @art_work, :method => :delete %><br>
     <% end %>
     <!-- end -->
     
-    <!-- comments..look up card styling.. container styling.. -->
+
       <% @art_work.comments.each do |c| %> 
         <div class="card" style="width:300px">
           <ul class="list-group list-group-flush">
