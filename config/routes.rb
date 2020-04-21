@@ -17,11 +17,14 @@ Rails.application.routes.draw do
   #logout
   delete '/logout' => 'sessions#destroy'
 
+
+
   resources :art_works do
     resources :comments
-     end
+  end
 
-  resource :comments
+  resource :comments, :only => [:update, :destroy, :create]
+
 
   # resources :challenges do
   #   resources :art_works, shallow: true
@@ -35,4 +38,5 @@ Rails.application.routes.draw do
     resources :art_works, shallow: true
   end
 
+  
 end
