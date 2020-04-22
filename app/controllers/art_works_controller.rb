@@ -23,6 +23,7 @@ class ArtWorksController < ApplicationController
         if @art_work.save
             redirect_to art_work_path(@art_work)
             # redirect_to challenge_art_work_path(@art_work.challenge, @art_work)
+            
         else
             render :new
         end

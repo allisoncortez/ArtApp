@@ -16,7 +16,7 @@
         <div class="card-body p-1">
           <!-- <%= image_tag(a.image, style:'width:100%') %> -->
           <!-- <%= link_to a.title, art_work_path(a), class: 'btn btn-secondary stretched-link' %> -->
-          <%= link_to image_tag(a.image, style:'width:100%'), art_work_path(a), class: 'stretched-link' %>
+          <%= link_to image_tag(a.image, style:'width:100%'), user_art_work_path(a.user, a), class: 'stretched-link' %>
         </div>
       </div><br>
     <% end %>

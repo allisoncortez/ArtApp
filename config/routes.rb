@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :art_works, shallow: true
+    resources :art_works
   end
 
   
