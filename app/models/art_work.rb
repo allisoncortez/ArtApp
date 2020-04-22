@@ -7,7 +7,9 @@ class ArtWork < ApplicationRecord
     validates :title, presence: true
     validate :correct_image
 
-    
+    scope :title, -> {order(:title)}
+
+
     private
     def correct_image
         if image.attached? && !image.content_type.in?(%w(image/jpeg image/png))

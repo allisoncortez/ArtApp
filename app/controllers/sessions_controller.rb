@@ -1,11 +1,9 @@
 class SessionsController < ApplicationController
-    # skip_before_action :current_user, only: [:new, :create]
 
     def new
         @user = User.new
     end
 
-    #works for regular users
     def create
         user = User.find_by(email: params[:user][:email])
         if user && user.authenticate(params[:user][:password])

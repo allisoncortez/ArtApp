@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   root 'sessions#home'
 
+  get '/art_works/title' => 'art_works#title', as: 'title'
+
   #signup
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
@@ -37,6 +39,5 @@ Rails.application.routes.draw do
   resources :users do
     resources :art_works
   end
-
   
 end

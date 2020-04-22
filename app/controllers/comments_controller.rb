@@ -1,9 +1,5 @@
 class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    # before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
-    # def index
-    # end
 
     def new
         @art_work = ArtWork.find_by_id(params[:art_work_id])
@@ -17,6 +13,7 @@ class CommentsController < ApplicationController
         
         if @comment.save
             redirect_to art_work_path(@art_work)
+            #@comment.art_work
         else
             render :new
         end
@@ -57,12 +54,4 @@ class CommentsController < ApplicationController
         params.require(:comment).permit(:content, :art_work_id, :user_id)
     end
 
-    # def set_comment
-    #     @comment = Comment.find_by(id: params[:id])
-    #     # @art_work = @comment.art_work
-    #     # if !@comment
-    #     #     flash[:message] = "Comment not found"
-    #     #     redirect_to art_work_path(@art_work)
-    #     # end
-    # end
 end
